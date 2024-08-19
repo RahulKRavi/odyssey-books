@@ -87,7 +87,6 @@ user_route.get('/razorpay-view', auth.isLogin, orderController.loadRazorPay)
 user_route.get('/my-orders', auth.isLogin, orderController.loadMyOrders)
 user_route.get('/order-details', auth.isLogin, orderController.loadOrderDetails)
 user_route.get('/cancel-order', auth.isLogin, orderController.cancelOrder)
-user_route.get('/download-invoice', auth.isLogin, orderController.downloadInvoice)
 
 
 module.exports = user_route;

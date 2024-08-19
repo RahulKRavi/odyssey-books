@@ -16,7 +16,7 @@ const instance = new Razorpay({
     key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-const easyinvoice = require('easyinvoice');
+
 
 //CONTROLLER FUNCTIONS FOR ADMIN SIDE
 
@@ -576,17 +576,6 @@ const cancelOrder = async (req, res) => {
     }
 }
 
-const downloadInvoice = async(req, res) =>{
-    try {
-        var data = {};
-        const elementId = 'pdf';
-        const result = await easyinvoice.createInvoice(data);
-        await easyinvoice.render(elementId, result.pdf);
-    } catch {
-        console.log(error)
-        res.redirect('/error-page')
-    }
-}
 
 
 module.exports = {
@@ -601,6 +590,5 @@ module.exports = {
   loadRazorPay,
   loadMyOrders,
   loadOrderDetails,
-  cancelOrder,
-  downloadInvoice
+  cancelOrder
 }
