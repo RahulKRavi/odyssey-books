@@ -8,14 +8,13 @@ const isLogin = async (req, res, next) => {
             if (user && user.is_blocked === 0) {
                 next();
             } else {
-
                 res.redirect('/?message=User is blocked.');
             }
         } else {
             res.redirect('/');
         }
     } catch (error) {
-        console.log(error.message);
+        console.err(error.message);
     }
 };
 
@@ -27,7 +26,7 @@ const isLogout = async( req, res, next)=>{
         }
         next()
     } catch (error) {
-        console.log(error.message)
+        console.err(error.message)
     }
 }
 

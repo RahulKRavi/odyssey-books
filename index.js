@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 async function connectDB() {
   try {
-    await mongoose.connect('mongodb://127.0.0.1:27017/bookData');
+    await mongoose.connect('mongodb://127.0.0.1:27017/odyssey');
     console.log('Database connection successful');
   } catch (error) {
     console.error('Database connection error:', error);
