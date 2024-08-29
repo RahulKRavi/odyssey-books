@@ -1,8 +1,10 @@
+const dotenv  = require('dotenv')
+dotenv.config();
 const mongoose = require('mongoose');
 
 async function connectDB() {
   try {
-    await mongoose.connect('mongodb://127.0.0.1:27017/odyssey');
+    await mongoose.connect(process.env.URI);
     console.log('Database connection successful');
   } catch (error) {
     console.error('Database connection error:', error);
