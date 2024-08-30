@@ -1,6 +1,8 @@
-const dotenv  = require('dotenv')
-dotenv.config();
+const express = require('express');
 const mongoose = require('mongoose');
+const userRoute = require('./routes/userRoute')
+const adminRoute = require('./routes/adminRoute')
+require('dotenv').dotenv.config();
 
 async function connectDB() {
   try {
@@ -12,12 +14,7 @@ async function connectDB() {
 }
 connectDB();
 
-const express = require('express');
 const app = express();
-
-const userRoute = require('./routes/userRoute')
-const adminRoute = require('./routes/adminRoute')
-
 app.use('/',userRoute);
 app.use('/admin',adminRoute)
 

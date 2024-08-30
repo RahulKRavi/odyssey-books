@@ -6,7 +6,6 @@ const otpHelper = require('../helpers/otpHelper')
 const passwordHelper = require('../helpers/passwordHelper')
 require('dotenv').config();
 
-
 const loadSignup = async (req, res) => {
     try {
         res.render('signup')
@@ -173,8 +172,6 @@ const processForgotPW = async (req, res) => {
     }
 }
 
-
-
 const loadVerifyOTP = async (req, res) => {
     try {
         res.render('verify-otp');
@@ -239,7 +236,6 @@ const processResetPW = async (req, res) =>{
     }
 }
 
-
 const loadHome = async (req, res) => {
     try {
         const userData = await User.findOne({ _id: req.session.user_id })
@@ -250,8 +246,6 @@ const loadHome = async (req, res) => {
         res.redirect('/error-page')
     }
 }
-
-
 
 const userLogout = async (req, res) => {
     try {

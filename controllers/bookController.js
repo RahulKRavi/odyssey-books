@@ -127,8 +127,6 @@ const reactivateBook = async(req,res)=>{
     await statusHelper.updateModelStatus(req,res,Book,0,'/admin/list-books')
 }
 
-
-
 const loadListBooksForUser = async(req, res)=>{
     try {
         var search = '';
@@ -174,7 +172,6 @@ const loadListBooksForUser = async(req, res)=>{
         res.redirect('/error-page')
     }
 }
-
 
 const loadViewBook = async (req, res) => {
     try {

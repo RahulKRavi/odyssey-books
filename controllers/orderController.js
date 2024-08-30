@@ -3,7 +3,6 @@ const { Book, Genre } = require('../models/bookModel');
 const Cart = require('../models/cartModel');
 const Order = require('../models/orderModel');
 const Coupon = require('../models/couponModel');
-
 const moment = require('moment')
 const mongoose = require('mongoose');
 require('dotenv').config();

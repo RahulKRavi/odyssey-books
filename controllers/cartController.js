@@ -3,7 +3,6 @@ const { Genre, Author, Book } = require('../models/bookModel');
 const Cart = require('../models/cartModel')
 const Coupon = require('../models/couponModel')
 
-
 const insertToCart = async (req, res) => {
     try {
         const id = req.body.book_id;
@@ -156,8 +155,6 @@ const addCoupon = async (req, res) => {
         res.redirect('/error-page');
     }
 };
-
-
 
 const deactivateCoupon = async(req,res)=>{
     try {

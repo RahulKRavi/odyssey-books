@@ -54,7 +54,6 @@ const deleteAddress = async( req, res)=>{
     }
 }
 
-
 //Function to load the edit page for address
 const loadEditAddress = async( req, res)=> {
     try {
@@ -182,7 +181,6 @@ const changePassword = async (req,res)=>{
         res.redirect('/error-page')
     }
 }
-
 
 module.exports = {
     loadChooseAddress,

@@ -85,7 +85,6 @@ const editBanner = async (req,res)=>{
     }
 }
 
-
 const deactivateBanner = async(req,res)=>{
     await statusHelper.updateModelStatus(req,res,Banner,1,'/admin/list-banners')
 }

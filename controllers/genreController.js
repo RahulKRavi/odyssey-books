@@ -1,9 +1,7 @@
 const { Genre, Book } = require('../models/bookModel'); 
 const statusHelper = require('../helpers/statusHelper')
 
-
 //Controller Functions For Admin Side
-
 
 const loadListGenresForAdmin = async (req, res) => {
     try {
@@ -116,7 +114,6 @@ const editGenre = async(req,res)=>{
     }
 }
 
-
 const deactivateGenre = async(req,res)=>{
     await statusHelper.updateModelStatus(req,res,Genre,1,'/admin/list-genres')
 }
@@ -125,10 +122,7 @@ const reactivateGenre = async(req,res)=>{
     await statusHelper.updateModelStatus(req,res,Genre,0,'/admin/list-genres')
 }
 
-
-
 //Controller Functions For User Side
-
 
 const loadViewGenre = async(req, res)=>{
     try {

@@ -87,7 +87,6 @@ const editAuthor = async (req,res)=>{
     }
 }
 
-
 const deactivateAuthor = async(req,res)=>{
     await statusHelper.updateModelStatus(req,res,Author,1,'/admin/list-authors')
 }
