@@ -1,24 +1,9 @@
 const express = require('express')
-const admin_route = express()
-
-admin_route.set('view engine', 'ejs')
-admin_route.set('views', './views/admin')
-admin_route.use(express.static('public'))
-admin_route.use(express.json())
-admin_route.use(express.urlencoded({extended:true}))
-
-const nocache = require('nocache')
-admin_route.use(nocache())
-
-const config = require('../config/sessionConfig')
 const session = require('express-session')
-admin_route.use(session({
-    secret:config.sessionSecret,
-    saveUninitialized:true,
-    resave:false
-}))
-
-
+const nocache = require('nocache')
+const dotenv = require('dotenv')
+dotenv.config();
+ 
 const auth = require('../middlewares/adminAuth')
 const { authorUpload,bookUpload,bannerUpload } = require('../config/multerConfig')
 const adminAuthController = require('../controllers/adminAuthController')
@@ -29,6 +14,19 @@ const bannerController = require('../controllers/bannerController')
 const cartController = require('../controllers/cartController')
 const orderController = require('../controllers/orderController')
 
+const admin_route = express()
+
+admin_route.set('view engine', 'ejs')
+admin_route.set('views', './views/admin')
+admin_route.use(express.static('public'))
+admin_route.use(express.json())
+admin_route.use(express.urlencoded({extended:true}))
+admin_route.use(nocache())
+admin_route.use(session({
+    secret:process.env.SESSION_SECRET,
+    saveUninitialized:true,
+    resave:false
+}))
 
 
 admin_route.get('/', auth.isLogout, adminAuthController.loadLogin)

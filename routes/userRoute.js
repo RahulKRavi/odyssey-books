@@ -1,5 +1,7 @@
 const express = require('express')
 const user_route = express()
+const dotenv = require('dotenv')
+dotenv.config();
 
 user_route.set('view engine', 'ejs')
 user_route.set('views', './views/users')
@@ -10,12 +12,11 @@ user_route.use(express.urlencoded({extended:true}))
 const nocache = require('nocache')
 user_route.use(nocache())
 
-const config = require('../config/sessionConfig')
 const session = require('express-session')
 user_route.use(session({
-    secret:config.sessionSecret,
-    saveUninitialized:true,
-    resave:false
+  secret:process.env.SESSION_SECRET,
+  saveUninitialized:true,
+  resave:false
 }))
 
 
