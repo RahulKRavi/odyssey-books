@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoute = require('./routes/userRoute')
 const adminRoute = require('./routes/adminRoute')
-require('dotenv').dotenv.config();
+require('dotenv').config();
 
 async function connectDB() {
   try {
